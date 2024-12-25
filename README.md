@@ -13,6 +13,7 @@ die unbestimmten Parameter der vierten Stufe, die nicht aus der dritten verläng
 
 Ad "Vierte_Stufe_20.536 Formeln_noch_mit_unbestimmten_Stellen.csv":
 Die Prämissen sind in Latex-Code geschrieben. (\usepackage{latexsym} - nicht vergessen)
+Warnung: Die Namen der Prämissen sind handgeschrieben und können fehlerhaft sein.
 
 Ad "main.py":
 Dieses Programm braucht für einen Durchlauf ca. 6,8 Stunden.
