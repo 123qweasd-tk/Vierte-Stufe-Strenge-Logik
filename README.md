@@ -11,7 +11,7 @@ Ziel des Projekts ist es, analog zu:
 https://github.com/123qweasd-tk/Syllogistik-App/blob/main/Logische_Grundlagen_der_Quantenphysik_Thomas_K%C3%A4fer.pdf
 die unbestimmten Parameter der vierten Stufe, die nicht aus der dritten verlängerten Stufe gewonnen werden können, als eine Zahl darstellen zu können in Bezug auf die 65 536 möglichen Formeln der vierten Stufe.
 
-Ad "Vierte_Stufe_20.536 Formeln_noch_mit_unbestimmten_Stellen.csv":
+Ad "main_output (1.Schritt).csv":
 Die Prämissen sind in Latex-Code geschrieben. (\usepackage{latexsym} - nicht vergessen)
 Warnung: Die Namen der Prämissen sind handgeschrieben und können fehlerhaft sein.
 
