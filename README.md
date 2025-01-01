@@ -5,7 +5,7 @@ Dies ist ein Projekt zur Bestimmung von Elementar-elementar-Entitäten mithilfe 
 
 "main.py" - beinhaltet einen Programmiercode, der die beiden Ableitungsregeln von der verlängerten triadischen Stufe zur tetradischen Stufe festlegt und alle Kombinationen (2**32 = 4 294 967 296) durch-iteriert und in eine neu erstellte .csv-Datei ausgibt.
 
-"Vierte_Stufe_20.536 Formeln_noch_mit_unbestimmten_Stellen.csv" - beinhaltet eine Liste mit einem ersten Element, der die resultierende Geltungswertformel (der vierten Stufe) angibt und einem zweiten Element der Liste die vier Prämissen (der dritten verlängerten Stufe) dazu angibt.
+"main_output (1.Schritt).csv" - beinhaltet eine Liste mit einem ersten Element, der die resultierende Geltungswertformel (der vierten Stufe) angibt und einem zweiten Element der Liste die vier Prämissen (der dritten verlängerten Stufe) dazu angibt.
 
 Ziel des Projekts ist es, analog zu:
 https://github.com/123qweasd-tk/Syllogistik-App/blob/main/Logische_Grundlagen_der_Quantenphysik_Thomas_K%C3%A4fer.pdf
