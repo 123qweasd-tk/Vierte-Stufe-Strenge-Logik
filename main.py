@@ -24,7 +24,7 @@ def total_formula_deduction_first_value_a_tet( first_formula,second_formula,thir
         return("a")
     elif second_formula[0] == "a" and third_formula[2] == "n":
         return("a")
-    elif second_formula[0] == "a" and fourth_formula[5] == "n":
+    elif second_formula[0] == "a" and fourth_formula[4] == "n":
         return("a")
     elif third_formula[0] == "a" and first_formula[1] == "n":
         return("a")
@@ -144,7 +144,7 @@ def total_formula_deduction_fourth_value_a_tet( first_formula,second_formula,thi
         return("a")
     elif second_formula[3] == "a" and third_formula[3] == "n":
         return("a")
-    elif second_formula[3] == "a" and fourth_formula[6] == "n":
+    elif second_formula[3] == "a" and fourth_formula[7] == "n":
         return("a")
     elif third_formula[1] == "a" and first_formula[0] == "n":
         return("a")
