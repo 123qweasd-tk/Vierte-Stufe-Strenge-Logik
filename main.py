@@ -341,9 +341,9 @@ def total_formula_deduction_ninth_value_a_tet( first_formula,second_formula,thir
         return("a")
     elif first_formula[4] == "a" and fourth_formula[1] == "n":
         return("a")
-    elif second_formula[4] == "a" and first_formula[7] == "n":
+    elif second_formula[4] == "a" and first_formula[6] == "n":
         return("a")
-    elif second_formula[4] == "a" and third_formula[7] == "n":
+    elif second_formula[4] == "a" and third_formula[6] == "n":
         return("a")
     elif second_formula[4] == "a" and fourth_formula[4] == "n":
         return("a")
@@ -387,7 +387,7 @@ def total_formula_deduction_tenth_value_a_tet( first_formula,second_formula,thir
         return("a")
     elif second_formula[5] == "a" and fourth_formula[5] == "n":
         return("a")
-    elif third_formula[5] == "a" and first_formula[4] == "n":
+    elif third_formula[5] == "a" and first_formula[5] == "n":
         return("a")
     elif third_formula[5] == "a" and second_formula[7] == "n":
         return("a")
@@ -459,7 +459,7 @@ def total_formula_deduction_twelveth_value_a_tet( first_formula,second_formula,t
         return("a")
     elif first_formula[5] == "a" and third_formula[4] == "n":
         return("a")
-    elif first_formula[5] == "a" and fourth_formula[3] == "n":
+    elif first_formula[5] == "a" and fourth_formula[2] == "n":
         return("a")
     elif second_formula[7] == "a" and first_formula[7] == "n":
         return("a")
@@ -495,7 +495,7 @@ def total_formula_deduction_thirdteenth_value_n_tet( first_formula,second_formul
         return("u")
 
 def total_formula_deduction_thirdteenth_value_a_tet( first_formula,second_formula,third_formula,fourth_formula):
-    if first_formula[6] == "a" and second_formula[1] == "n":    #calculates potential "a"-values of thirdteenth value
+    if first_formula[6] == "a" and second_formula[5] == "n":    #calculates potential "a"-values of thirdteenth value
         return("a")
     elif first_formula[6] == "a" and third_formula[7] == "n":
         return("a")
@@ -505,7 +505,7 @@ def total_formula_deduction_thirdteenth_value_a_tet( first_formula,second_formul
         return("a")
     elif second_formula[4] == "a" and third_formula[4] == "n":
         return("a")
-    elif second_formula[4] == "a" and fourth_formula[7] == "n":
+    elif second_formula[4] == "a" and fourth_formula[0] == "n":
         return("a")
     elif third_formula[6] == "a" and first_formula[7] == "n":
         return("a")
@@ -713,15 +713,20 @@ def syllogism_contradiction_test_tet( first_formula, second_formula, third_formu
 
     conclusion_solution = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         
-    for i in range(32):
+    for i in range(16):
 
-        if conclusion_solution[int((i/2))] == 0 or conclusion_solution[int((i/2))] == 'u':
-            if conclusion[i] == 'u':
-                conclusion_solution[int((i/2))] = 'u'
-            elif conclusion[i] == 'a':
-                conclusion_solution[int((i/2))] = 'a'
-            elif conclusion[i] == 'n':
-                conclusion_solution[int((i/2))] = 'n'
+        if conclusion_solution[i] == 0 or conclusion_solution[i] == 'u':
+
+            if conclusion[2*i] == 'a':
+                conclusion_solution[i] = 'a'
+            elif conclusion[2*i] == 'n':
+                conclusion_solution[i] = 'n'
+            elif conclusion[2*i+1] == 'a':
+                conclusion_solution[i] = 'a'
+            elif conclusion[2*i+1] == 'n':
+                conclusion_solution[i] = 'n'
+            else:
+                conclusion_solution[i] = 'u'
         
     return (conclusion_solution, 'kW')
 
@@ -1044,14 +1049,14 @@ def triadic_name_fn( formula, index_premis_circumstance):
         for formula_list_name in triadic_level_formulas_names_list:
             if formula_list_A_N[0] == formula:
                 #print(formula_list_name[0])
-                if index_premis_circumstance == 1:
+                if index_premis_circumstance == 2:
                     new_formula_A = triadic_level_formulas_names_list[i][0][:].replace("B", "X")
                     new_formula_2 = new_formula_A.replace("D", "E")
                     new_formula_3 = new_formula_2.replace("C", "D")
                     new_formula_4 = new_formula_3.replace("X", "C")
                     return [new_formula_4]
                 #"$C$\textbullet$D$\textbullet$E$"
-                elif index_premis_circumstance == 2:
+                elif index_premis_circumstance == 1:
                     new_formula_B = triadic_level_formulas_names_list[i][0][:].replace("D", "E")
                     return [new_formula_B]
                 #"$B$\textbullet$C$\textbullet$E$"
@@ -1120,8 +1125,10 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
             #print(second_formula_tri)
             #print(third_formula_tri)
             #print(fourth_formula_tri)
-            
-            
+        
+
+        
+        
             solution_and_contradiction_test = syllogism_contradiction_test_tet(first_formula_tri, second_formula_tri, third_formula_tri, fourth_formula_tri)
                         #solution_and_contradiction_test[0].count('u') == 1 --> one 'u' in total-formula
                         #len(error_number) == 0 --> no contradiction
@@ -1137,7 +1144,7 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
                 third_formula = triadic_name_fn(third_formula_tri, 3)
                 fourth_formula = triadic_name_fn(fourth_formula_tri, 4)
 
-                writer.writerow([solution_and_contradiction_test[0], [fourth_formula, first_formula, second_formula, third_formula]])
+                writer.writerow([solution_and_contradiction_test[0], [fourth_formula, second_formula, first_formula, third_formula]])
                 
         file.close()    
                                                                                                                                           
