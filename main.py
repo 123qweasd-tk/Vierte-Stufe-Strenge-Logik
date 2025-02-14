@@ -732,342 +732,286 @@ def syllogism_contradiction_test_tet( first_formula, second_formula, third_formu
 
 
 def triadic_name_fn( formula, index_premis_circumstance):
-    list_third_level = []
-    list_third_level_list = []
+    
+    list_formulas_names = [[['a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 1']],\
+                            [['a', 'a', 'a', 'a', 'a', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 2']],\
+                            [['a', 'a', 'a', 'n', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 3']],\
+                            [['a', 'a', 'a', 'n', 'a', 'a', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\cup D, 1A, 5A$']],\
+                            [['a', 'a', 'a', 'a', 'a', 'n', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 5']],\
+                            [['a', 'a', 'a', 'a', 'a', 'n', 'a', 'n'], ['$B\\cup C, C\\cup D, B\\sqcup D, 1A, 3A$']],\
+                            [['a', 'a', 'a', 'n', 'a', 'n', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 7']],\
+                            [['a', 'a', 'a', 'n', 'a', 'n', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\sqcup D, 1A$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 9']],\
+                            [['a', 'n', 'a', 'a', 'a', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 10']],\
+                            [['a', 'n', 'a', 'n', 'a', 'a', 'a', 'a'], ['$B\\cup C, C\\cup D, B\\subset D, 5A, 7A$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'a', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\subset D, 5A$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'n', 'a', 'a'], ['$B\\subset C, C\\cup D, B\\cup D, 3A, 7A$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'n', 'a', 'n'], ['$B\\subset C, C\\cup D, B\\sqcup D, 3A$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'n', 'a', 'a'], ['$B\\subset C, C\\cup D, B\\subset D, 7A$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'n', 'a', 'n'], ['$B\\sqsubset C, C\\cup D, B\\sqsubset D$']],\
+                            [['a', 'a', 'a', 'a', 'a', 'a', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 17']],\
+                            [['a', 'a', 'a', 'a', 'a', 'a', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\cup D, 1A, 2A$']],\
+                            [['a', 'a', 'a', 'n', 'a', 'a', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 19']],\
+                            [['a', 'a', 'a', 'n', 'a', 'a', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\cup D, 1A$']],\
+                            [['a', 'a', 'a', 'a', 'a', 'n', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 21']],\
+                            [['a', 'a', 'a', 'a', 'a', 'n', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\sqcup D, 1A$']],\
+                            [['a', 'a', 'a', 'n', 'a', 'n', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 23']],\
+                            [['a', 'a', 'a', 'n', 'a', 'n', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\sqcup D, 1A$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'a', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 25']],\
+                            [['a', 'n', 'a', 'a', 'a', 'a', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\cup D, 1A, 2N$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'a', 'n', 'a'], ['$B\\cup C, C\\cup D, B\\subset D, 5A, 7N$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'a', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\subset D$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'n', 'n', 'a'], ['$B\\subset C, C\\cup D, B\\cup D, 3A, 7N$']],\
+                            [['a', 'n', 'a', 'a', 'a', 'n', 'n', 'n'], ['$B\\subset C, C\\sqcup D, B\\sqcup D$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'n', 'n', 'a'], ['$B\\subset C, C\\cup D, B\\subset D, 7N$']],\
+                            [['a', 'n', 'a', 'n', 'a', 'n', 'n', 'n'], ['$B\\sqsubset C, C\\sqcup D, B\\sqsubset D$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 33']],\
+                            [['a', 'a', 'n', 'a', 'a', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 34']],\
+                            [['a', 'a', 'n', 'n', 'a', 'a', 'a', 'a'], ['$B\\cup C, C\\subset D, B\\cup D, 5A, 6A$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'a', 'a', 'n'], ['$B\\sqcup C, C\\subset D, B\\cup D, 5A$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'n', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 37']],\
+                            [['a', 'a', 'n', 'a', 'a', 'n', 'a', 'n'], ['$B\\cup C, C\\cup D, B\\sqcup D, 1A, 3N$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'n', 'a', 'a'], ['$B\\cup C, C\\subset D, B\\cup D, 5A, 6N$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'n', 'a', 'n'], ['$B\\sqcup C, C\\subset D, B\\sqcup D$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 41']],\
+                            [['a', 'n', 'n', 'a', 'a', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 42']],\
+                            [['a', 'n', 'n', 'n', 'a', 'a', 'a', 'a'], ['$B\\cup C, C\\subset D, B\\subset D, 5A$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'a', 'a', 'n'], ['$B\\sqcup C, C\\subset D, B\\subset D, 5A$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'n', 'a', 'a'], ['$B\\subset C, C\\cup D, B\\cup D, 3N, 7A$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'n', 'a', 'n'], ['$B\\subset C, C\\cup D, B\\sqcup D, 3N$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'n', 'a', 'a'], ['$B\\subset C, C\\subset D, B\\subset D$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'n', 'a', 'n'], ['$B\\sqsubset C, C\\subset D, B\\sqsubset D$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'a', 'n', 'a'], ['$B\\supset C, C\\cup D, B\\cup D, 2A, 6A$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'a', 'n', 'n'], ['$B\\supset C, C\\sqcup D, B\\cup D, 2A$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'a', 'n', 'a'], ['$B\\supset C, C\\subset D, B\\cup D, 6A$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'a', 'n', 'n'], ['$B\\sqsupset C, C\\sqsubset D, B\\cup D$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'n', 'n', 'a'], ['$B\\supset C, C\\cup D, B\\cup D, 2A, 6N$']],\
+                            [['a', 'a', 'n', 'a', 'a', 'n', 'n', 'n'], ['$B\\supset C, C\\sqcup D, B\\sqcup D$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'n', 'n', 'a'], ['$B\\supset C, C\\subset D, B\\cup D, 6N$']],\
+                            [['a', 'a', 'n', 'n', 'a', 'n', 'n', 'n'], ['$B\\sqsupset C, C\\sqsubset D, B\\sqcup D$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'a', 'n', 'a'], ['$B\\supset C, C\\cup D, B\\cup D, 2N, 6A$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'a', 'n', 'n'], ['$B\\supset C, C\\sqcup D, B\\cup D, 2N$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'a', 'n', 'a'], ['$B\\supset C, C\\subset D, B\\subset D$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'a', 'n', 'n'], ['$B\\sqsupset C, C\\sqsubset D, B\\subset D$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'n', 'n', 'a'], ['$B\\cap C, C\\cup D, B\\cup D$']],\
+                            [['a', 'n', 'n', 'a', 'a', 'n', 'n', 'n'], ['$B\\cap C, C\\sqcup D, B\\sqcup D$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'n', 'n', 'a'], ['$B\\cap C, C\\subset D, B\\subset D$']],\
+                            [['a', 'n', 'n', 'n', 'a', 'n', 'n', 'n'], ['$B\\sqcap C, C\\sqsubset D, B\\sqsubset D$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 65']],\
+                            [['a', 'a', 'a', 'a', 'n', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 66']],\
+                            [['a', 'a', 'a', 'n', 'n', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 67']],\
+                            [['a', 'a', 'a', 'n', 'n', 'a', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\cup D, 1A, 5N$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'n', 'a', 'a'], ['$B\\cup C, C\\supset D, B\\cup D, 3A, 4A$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'n', 'a', 'n'], ['$B\\cup C, C\\supset D, B\\sqcup D, 3A$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'n', 'a', 'a'], ['$B\\cup C, C\\supset D, B\\cup D, 3A, 4N$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'n', 'a', 'n'], ['$B\\sqcup C, C\\supset D, B\\sqcup D$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 73']],\
+                            [['a', 'n', 'a', 'a', 'n', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 74']],\
+                            [['a', 'n', 'a', 'n', 'n', 'a', 'a', 'a'], ['$B\\cup C, C\\cup D, B\\subset D, 5N, 7A$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'a', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\subset D, 5N$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'n', 'a', 'a'], ['$B\\subset C, C\\supset D, B\\cup D, 3A$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'n', 'a', 'n'], ['$B\\subset C, C\\supset D, B\\sqcup D, 3A$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'n', 'a', 'a'], ['$B\\subset C, C\\supset D, B\\subset D$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'n', 'a', 'n'], ['$B\\sqsubset C, C\\supset D, B\\sqsubset D$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'a', 'n', 'a'], ['$B\\cup C, C\\cup D, B\\supset D, 2A, 4A$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'a', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\supset D, 2A$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'a', 'n', 'a'], ['$B\\cup C, C\\cup D, B\\supset D, 2A, 4N$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'a', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\supset D$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'n', 'n', 'a'], ['$B\\cup C, C\\supset D, B\\supset D, 4A$']],\
+                            [['a', 'a', 'a', 'a', 'n', 'n', 'n', 'n'], ['$B\\cup C, C\\sqsupset D, B\\sqsupset D$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'n', 'n', 'a'], ['$B\\cup C, C\\supset D, B\\supset D, 4N$']],\
+                            [['a', 'a', 'a', 'n', 'n', 'n', 'n', 'n'], ['$B\\sqcup C, C\\sqsupset D, B\\sqsupset D$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'a', 'n', 'a'], ['$B\\cup C, C\\cup D, B\\supset D, 2N, 4A$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'a', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\supset D, 2N$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'a', 'n', 'a'], ['$B\\cup C, C\\cup D, B\\cap D$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'a', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\cap D$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'n', 'n', 'a'], ['$B\\subset C, C\\supset D, B\\supset D$']],\
+                            [['a', 'n', 'a', 'a', 'n', 'n', 'n', 'n'], ['$B\\subset C, C\\sqsupset D, B\\sqsupset D$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'n', 'n', 'a'], ['$B\\subset C, C\\supset D, B\\cap D$']],\
+                            [['a', 'n', 'a', 'n', 'n', 'n', 'n', 'n'], ['$B\\sqsubset C, C\\sqsupset D, B\\sqcap D$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 97']],\
+                            [['a', 'a', 'n', 'a', 'n', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 98']],\
+                            [['a', 'a', 'n', 'n', 'n', 'a', 'a', 'a'], ['$B\\cup C, C\\subset D, B\\cup D, 5N, 6A$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'a', 'a', 'n'], ['$B\\sqcup C, C\\subset D, B\\cup D, 5N$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'n', 'a', 'a'], ['$B\\cup C, C\\supset D, B\\cup D, 3N, 4A$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'n', 'a', 'n'], ['$B\\cup C, C\\supset D, B\\sqcup D, 3N$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'n', 'a', 'a'], ['$B\\cup C, C\\cap D, B\\cup D$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'n', 'a', 'n'], ['$B\\sqcup C, C\\cap D, B\\sqcup D$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 105']],\
+                            [['a', 'n', 'n', 'a', 'n', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 106']],\
+                            [['a', 'n', 'n', 'n', 'n', 'a', 'a', 'a'], ['$B\\cup C, C\\subset D, B\\subset D, 5N$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'a', 'a', 'n'], ['$B\\sqcup C, C\\subset D, B\\subset D, 5N$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'n', 'a', 'a'], ['$B\\subset C, C\\supset D, B\\cup D, 3N$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'n', 'a', 'n'], ['$B\\subset C, C\\supset D, B\\sqcup D, 3N$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'n', 'a', 'a'], ['$B\\subset C, C\\cap D, B\\subset D$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'n', 'a', 'n'], ['$B\\sqsubset C, C\\cap D, B\\sqsubset D$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'a', 'n', 'a'], ['$B\\supset C, C\\cup D, B\\supset D, 2A$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'a', 'n', 'n'], ['$B\\supset C, C\\sqcup D, B\\supset D, 2A$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'a', 'n', 'a'], ['$B\\supset C, C\\subset D, B\\supset D$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'a', 'n', 'n'], ['$B\\sqsupset C, C\\sqsubset D, B\\supset D$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'n', 'n', 'a'], ['$B\\supset C, C\\supset D, B\\supset D$']],\
+                            [['a', 'a', 'n', 'a', 'n', 'n', 'n', 'n'], ['$B\\supset C, C\\sqsupset D, B\\sqsupset D$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'n', 'n', 'a'], ['$B\\supset C, C\\cap D, B\\supset D$']],\
+                            [['a', 'a', 'n', 'n', 'n', 'n', 'n', 'n'], ['$B\\sqsupset C, C\\sqcap D, B\\sqsupset D$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'a', 'n', 'a'], ['$B\\supset C, C\\cup D, B\\supset D, 2N$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'a', 'n', 'n'], ['$B\\supset C, C\\sqcup D, B\\supset D, 2N$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'a', 'n', 'a'], ['$B\\supset C, C\\subset D, B\\cap D$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'a', 'n', 'n'], ['$B\\sqsupset C, C\\sqsubset D, B\\cap D$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'n', 'n', 'a'], ['$B\\cap C, C\\supset D, B\\supset D$']],\
+                            [['a', 'n', 'n', 'a', 'n', 'n', 'n', 'n'], ['$B\\cap C, C\\sqsupset D, B\\sqsupset D$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'n', 'n', 'a'], ['$B\\cap C, C\\cap D, B\\cap D$']],\
+                            [['a', 'n', 'n', 'n', 'n', 'n', 'n', 'n'], ['$B\\sqcap C, C\\sqcap D, B\\sqcap D$']],\
+                            [['n', 'a', 'a', 'a', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 129']],\
+                            [['n', 'a', 'a', 'a', 'a', 'a', 'a', 'n'], ['$B$\textbullet$C$\textbullet$D$ 130']],\
+                            [['n', 'a', 'a', 'n', 'a', 'a', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 131']],\
+                            [['n', 'a', 'a', 'n', 'a', 'a', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\cup D, 1N, 5A$']],\
+                            [['n', 'a', 'a', 'a', 'a', 'n', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 133']],\
+                            [['n', 'a', 'a', 'a', 'a', 'n', 'a', 'n'], ['$B\\cup C, C\\cup D, B\\sqcup D, 1N, 3A$']],\
+                            [['n', 'a', 'a', 'n', 'a', 'n', 'a', 'a'], ['$B$\textbullet$C$\textbullet$D$ 135']],\
+                            [['n', 'a', 'a', 'n', 'a', 'n', 'a', 'n'], ['$B\\sqcup C, C\\cup D, B\\sqcup D, 1N$']],\
+                            [['n', 'n', 'a', 'a', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\sqcap 'D, B\\cup D, 7A, 8A$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'a', 'a', 'n'], ["$B\\cup C, C\\sqcap 'D, B\\cup D, 7A, 8N$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\sqcap 'D, B\\subset D, 7A$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'a', 'a', 'n'], ["$B\\sqcup C, C\\sqcap 'D, B\\subset D$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'n', 'a', 'a'], ["$B\\subset C, C\\sqcap 'D, B\\cup D, 7A$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'n', 'a', 'n'], ["$B\\subset C, C\\sqcap 'D, B\\sqcup D$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'n', 'a', 'a'], ["$B\\subset C, C\\sqcap 'D, B\\subset D, 7A$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'n', 'a', 'n'], ["$B\\sqsubset C, C\\sqcap 'D, B\\sqsubset D$"]],\
+                            [['n', 'a', 'a', 'a', 'a', 'a', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 145']],\
+                            [['n', 'a', 'a', 'a', 'a', 'a', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\cup D, 1N, 2A$']],\
+                            [['n', 'a', 'a', 'n', 'a', 'a', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 147']],\
+                            [['n', 'a', 'a', 'n', 'a', 'a', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\cup D, 1N$']],\
+                            [['n', 'a', 'a', 'a', 'a', 'n', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 149']],\
+                            [['n', 'a', 'a', 'a', 'a', 'n', 'n', 'n'], ['$B\\cup C, C\\sqcup D, B\\sqcup D, 1N$']],\
+                            [['n', 'a', 'a', 'n', 'a', 'n', 'n', 'a'], ['$B$\textbullet$C$\textbullet$D$ 151']],\
+                            [['n', 'a', 'a', 'n', 'a', 'n', 'n', 'n'], ['$B\\sqcup C, C\\sqcup D, B\\sqcup D, 1N$']],\
+                            [['n', 'n', 'a', 'a', 'a', 'a', 'n', 'a'], ["$B\\cup C, C\\sqcap 'D, B\\cup D, 7N, 8A$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'a', 'n', 'n'], ["$B\\cup C, C\\cap 'D, B\\cup D$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'a', 'n', 'a'], ["$B\\cup C, C\\sqcap 'D, B\\subset D, 7N$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'a', 'n', 'n'], ["$B\\sqcup C, C\\cap 'D, B\\subset D$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'n', 'n', 'a'], ["$B\\subset C, C\\sqcap 'D, B\\cup D, 7N$"]],\
+                            [['n', 'n', 'a', 'a', 'a', 'n', 'n', 'n'], ["$B\\subset C, C\\cap 'D, B\\sqcup D$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'n', 'n', 'a'], ["$B\\subset C, C\\sqcap 'D, B\\subset D, 7N$"]],\
+                            [['n', 'n', 'a', 'n', 'a', 'n', 'n', 'n'], ["$B\\sqsubset C, C\\cap 'D, B\\sqsubset D$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\cup D, B\\sqcap 'D, 6A, 8A$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'a', 'a', 'n'], ["$B\\cup C, C\\cup D, B\\sqcap 'D, 6A, 8N$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\subset D, B\\sqcap 'D, 6A$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'a', 'a', 'n'], ["$B\\sqcup C, C\\subset D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'n', 'a', 'a'], ["$B\\cup C, C\\cup D, B\\sqcap 'D, 6N, 8A$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'n', 'a', 'n'], ["$B\\cup C, C\\cup D, B\\cap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'n', 'a', 'a'], ["$B\\cup C, C\\subset D, B\\sqcap 'D, 6N$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'n', 'a', 'n'], ["$B\\sqcup C, C\\subset D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\sqcap 'D, B\\sqcap 'D, 8A$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'a', 'a', 'n'], ["$B\\cup C, C\\sqcap 'D, B\\sqcap 'D, 8N$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'a', 'a', 'a'], ["$B\\cup C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'a', 'a', 'n'], ["$B\\sqcup C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'n', 'a', 'a'], ["$B\\subset C, C\\sqcap 'D, B\\sqcap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'n', 'a', 'n'], ["$B\\subset C, C\\sqcap 'D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'n', 'a', 'a'], ["$B\\subset C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'n', 'a', 'n'], ["$B\\sqsubset C, C\\sqsupset 'D, B\\supset 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'a', 'n', 'a'], ["$B\\supset C, C\\cup D, B\\sqcap 'D, 6A$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'a', 'n', 'n'], ["$B\\supset C, C\\sqcup D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'a', 'n', 'a'], ["$B\\supset C, C\\subset D, B\\sqcap 'D, 6A$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'a', 'n', 'n'], ["$B\\sqsupset C, C\\sqsubset D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'n', 'n', 'a'], ["$B\\supset C, C\\cup D, B\\sqcap 'D, 6N$"]],\
+                            [['n', 'a', 'n', 'a', 'a', 'n', 'n', 'n'], ["$B\\supset C, C\\sqcup D, B\\cap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'n', 'n', 'a'], ["$B\\supset C, C\\subset D, B\\sqcap 'D, 6N$"]],\
+                            [['n', 'a', 'n', 'n', 'a', 'n', 'n', 'n'], ["$B\\sqsupset C, C\\sqsubset D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'a', 'n', 'a'], ["$B\\supset C, C\\sqcap 'D, B\\sqcap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'a', 'n', 'n'], ["$B\\supset C, C\\cap 'D, B\\sqcap 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'a', 'n', 'a'], ["$B\\supset C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'a', 'n', 'n'], ["$B\\sqsupset C, C\\supset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'n', 'n', 'a'], ["$B\\cap C, C\\sqcap 'D, B\\sqcap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'a', 'n', 'n', 'n'], ["$B\\cap C, C\\cap 'D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'n', 'n', 'a'], ["$B\\cap C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'a', 'n', 'n', 'n'], ["$B\\sqcap C, C\\supset 'D, B\\supset 'D$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\cup D, B\\cup D, 4A, 8A$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'a', 'a', 'n'], ["$B\\sqcap 'C, C\\cup D, B\\cup D, 4A, 8N$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\cup D, B\\cup D, 4N, 8A$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'a', 'a', 'n'], ["$B\\cap 'C, C\\cup D, B\\cup D$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'n', 'a', 'a'], ["$B\\sqcap 'C, C\\supset D, B\\cup D, 4A$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'n', 'a', 'n'], ["$B\\sqcap 'C, C\\supset D, B\\sqcup D$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'n', 'a', 'a'], ["$B\\sqcap 'C, C\\supset D, B\\cup D, 4N$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'n', 'a', 'n'], ["$B\\cap 'C, C\\supset D, B\\sqcup D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\sqcap 'D, B\\cup D, 8A$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'a', 'a', 'n'], ["$B\\sqcap 'C, C\\sqcap 'D, B\\cup D, 8N$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\sqcap 'D, B\\subset D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'a', 'a', 'n'], ["$B\\cap 'C, C\\sqcap 'D, B\\subset D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'n', 'a', 'a'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\cup D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'n', 'a', 'n'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\sqcup D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'n', 'a', 'a'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\subset D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'n', 'a', 'n'], ["$B\\supset 'C, C\\sqsubset 'D, B\\sqsubset D$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'a', 'n', 'a'], ["$B\\sqcap 'C, C\\cup D, B\\supset D, 4A$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'a', 'n', 'n'], ["$B\\sqcap 'C, C\\sqcup D, B\\supset D$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'a', 'n', 'a'], ["$B\\sqcap 'C, C\\cup D, B\\supset D, 4N$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'a', 'n', 'n'], ["$B\\cap 'C, C\\sqcup D, B\\supset D$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'n', 'n', 'a'], ["$B\\sqcap 'C, C\\supset D, B\\supset D, 4A$"]],\
+                            [['n', 'a', 'a', 'a', 'n', 'n', 'n', 'n'], ["$B\\sqcap 'C, C\\sqsupset D, B\\sqsupset D$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'n', 'n', 'a'], ["$B\\sqcap 'C, C\\supset D, B\\supset D, 4N$"]],\
+                            [['n', 'a', 'a', 'n', 'n', 'n', 'n', 'n'], ["$B\\cap 'C, C\\sqsupset D, B\\sqsupset D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'a', 'n', 'a'], ["$B\\sqcap 'C, C\\sqcap 'D, B\\supset D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'a', 'n', 'n'], ["$B\\sqcap 'C, C\\cap 'D, B\\supset D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'a', 'n', 'a'], ["$B\\sqcap 'C, C\\sqcap 'D, B\\cap D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'a', 'n', 'n'], ["$B\\cap 'C, C\\cap 'D, B\\cap D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'n', 'n', 'a'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\supset D$"]],\
+                            [['n', 'n', 'a', 'a', 'n', 'n', 'n', 'n'], ["$B\\sqsupset 'C, C\\subset 'D, B\\sqsupset D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'n', 'n', 'a'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\cap D$"]],\
+                            [['n', 'n', 'a', 'n', 'n', 'n', 'n', 'n'], ["$B\\supset 'C, C\\subset 'D, B\\sqcap D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\cup D, B\\sqcap 'D, 8A$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'a', 'a', 'n'], ["$B\\sqcap 'C, C\\cup D, B\\sqcap 'D, 8N$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\subset D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'a', 'a', 'n'], ["$B\\cap' C, C\\subset D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'n', 'a', 'a'], ["$B\\sqcap 'C, C\\supset D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'n', 'a', 'n'], ["$B\\sqcap 'C, C\\supset D, B\\cap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'n', 'a', 'a'], ["$B\\sqcap 'C, C\\cap D, B\\sqcap 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'n', 'a', 'n'], ["$B\\cap 'C, C\\cap D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\sqcap 'D B\\sqcap 'D, 8A$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'a', 'a', 'n'], ["$B\\sqcap 'C, C\\sqcap 'D B\\sqcap 'D, 8N$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'a', 'a', 'a'], ["$B\\sqcap 'C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'a', 'a', 'n'], ["$B\\cap 'C, C\\sqsupset 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'n', 'a', 'a'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\sqcap 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'n', 'a', 'n'], ["$B\\sqsupset 'C, C\\sqsubset 'D, B\\cap 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'n', 'a', 'a'], ["$B\\sqsupset 'C, C\\sqcup 'D, B\\sqsupset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'n', 'a', 'n'], ["$B\\supset 'C, C\\sqcup 'D, B\\supset 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'a', 'n', 'a'], ["$B\\sqsubset 'C, C\\cup D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'a', 'n', 'n'], ["$B\\sqsubset 'C, C\\sqcup D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'a', 'n', 'a'], ["$B\\sqsubset 'C, C\\subset D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'a', 'n', 'n'], ["$B\\subset 'C, C\\sqsubset D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'n', 'n', 'a'], ["$B\\sqsubset 'C, C\\supset D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'a', 'n', 'n', 'n', 'n'], ["$B\\sqsubset 'C, C\\sqsupset D, B\\subset 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'n', 'n', 'a'], ["$B\\sqsubset 'C, C\\cap D, B\\sqsubset 'D$"]],\
+                            [['n', 'a', 'n', 'n', 'n', 'n', 'n', 'n'], ["$B\\subset 'C, C\\sqcap D, B\\subset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'a', 'n', 'a'], ["$B\\sqsubset 'C, C\\sqcap 'D, B\\sqsubset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'a', 'n', 'n'], ["$B\\sqsubset 'C, C\\cap 'D, B\\sqsubset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'a', 'n', 'a'], ["$B\\sqsubset 'C, C\\sqsupset 'D, B\\sqcup 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'a', 'n', 'n'], ["$B\\subset 'C, C\\supset 'D, B\\sqcup 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'n', 'n', 'a'], ["$B\\sqcup 'C, C\\sqsubset 'D, B\\sqsubset 'D$"]],\
+                            [['n', 'n', 'n', 'a', 'n', 'n', 'n', 'n'], ["$B\\sqcup 'C, C\\subset 'D, B\\subset 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'a'], ["$B\\sqcup 'C, C\\sqcup 'D, B\\sqcup 'D$"]],\
+                            [['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'], ["$B\\cup 'C, C\\cup 'D, B\\cup 'D$"]]]
 
-    count_2 = 0
-    for l in range(2):
-        for m in range(2):
-            for n in range(2):
-                for o in range(2):
-                    for p in range(2):
-                        for q in range(2):
-                            for r in range(2):
-                                for s in range(2):
-                                    if l == 0:
-                                        list_third_level.append('a')
-                                    elif l == 1:
-                                        list_third_level.append('n')
-                                    if m == 0:
-                                        list_third_level.append('a')
-                                    elif m == 1:
-                                        list_third_level.append('n')
-                                    if n == 0:
-                                        list_third_level.append('a')
-                                    elif n == 1:
-                                        list_third_level.append('n')
-                                    if o == 0:
-                                        list_third_level.append('a')
-                                    elif o == 1:
-                                        list_third_level.append('n')
-                                    if p == 0:
-                                        list_third_level.append('a')
-                                    elif p == 1:
-                                        list_third_level.append('n')
-                                    if q == 0:
-                                        list_third_level.append('a')
-                                    elif q == 1:
-                                        list_third_level.append('n')
-                                    if r == 0:
-                                        list_third_level.append('a')
-                                    elif r == 1:
-                                        list_third_level.append('n')
-                                    if s == 0:
-                                        list_third_level.append('a')
-                                    elif s == 1:
-                                        list_third_level.append('n')
-                                    if len(list_third_level) == 8:
-                                        count_2 = count_2 + 1
-                                        
-                                        list_third_level_list.append([list_third_level[:]])
-                                        #for t in range(len(list_removed_double_formulas_list)):
-                                            #if list_third_level == list_removed_double_formulas_list[t][0]:
-                                                #list_third_level_list.remove([list_third_level, 0])
-                                                #list_third_level_list.append([list_removed_double_formulas_list[t][0], list_removed_double_formulas_list[t][1], list_removed_double_formulas_list[t][2]])
-                                    list_third_level.clear()
-
-    triadic_level_formulas_names_list = [\
-        ["$B$\textbullet$C$\textbullet$D$ 1"],\
-        ["$B$\textbullet$C$\textbullet$D$ 2"],\
-        ["$B$\textbullet$C$\textbullet$D$ 3"],\
-        ["$B\sqcup C, C\cup D, B\cup D, 1A, 5A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 5"],\
-        ["$B\cup C, C\cup D, B\sqcup D, 1A, 3A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 7"],\
-        ["$B\sqcup C, C\cup D, B\sqcup D, 1A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 9"],\
-        ["$B$\textbullet$C$\textbullet$D$ 10"],\
-        ["$B\cup C, C\cup D, B\subset D, 5A, 7A$"],\
-        ["$B\sqcup C, C\cup D, B\subset D, 5A$"],\
-        ["$B\subset C, C\cup D, B\cup D, 3A, 7A$"],\
-        ["$B\subset C, C\cup D, B\sqcup D, 3A$"],\
-        ["$B\subset C, C\cup D, B\subset D, 7A$"],\
-        ["$B\sqsubset C, C\cup D, B\sqsubset D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 17"],\
-        ["$B\cup C, C\sqcup D, B\cup D, 1A, 2A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 19"],\
-        ["$B\sqcup C, C\sqcup D, B\cup D, 1A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 21"],\
-        ["$B\cup C, C\sqcup D, B\sqcup D, 1A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 23"],\
-        ["$B\sqcup C, C\sqcup D, B\sqcup D, 1A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 25"],\
-        ["$B\cup C, C\sqcup D, B\cup D, 1A, 2N$"],\
-        ["$B\cup C, C\cup D, B\subset D, 5A, 7N$"],\
-        ["$B\sqcup C, C\sqcup D, B\subset D$"],\
-        ["$B\subset C, C\cup D, B\cup D, 3A, 7N$"],\
-        ["$B\subset C, C\sqcup D, B\sqcup D$"],\
-        ["$B\subset C, C\cup D, B\subset D, 7N$"],\
-        ["$B\sqsubset C, C\sqcup D, B\sqsubset D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 33"],\
-        ["$B$\textbullet$C$\textbullet$D$ 34"],\
-        ["$B\cup C, C\subset D, B\cup D, 5A, 6A$"],\
-        ["$B\sqcup C, C\subset D, B\cup D, 5A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 37"],\
-        ["$B\cup C, C\cup D, B\sqcup D, 1A, 3N$"],\
-        ["$B\cup C, C\subset D, B\cup D, 5A, 6N$"],\
-        ["$B\sqcup C, C\subset D, B\sqcup D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 41"],\
-        ["$B$\textbullet$C$\textbullet$D$ 42"],\
-        ["$B\cup C, C\subset D, B\subset D, 5A$"],\
-        ["$B\sqcup C, C\subset D, B\subset D, 5A$"],\
-        ["$B\subset C, C\cup D, B\cup D, 3N, 7A$"],\
-        ["$B\subset C, C\cup D, B\sqcup D, 3N$"],\
-        ["$B\subset C, C\subset D, B\subset D$"],\
-        ["$B\sqsubset C, C\subset D, B\sqsubset D$"],\
-        ["$B\supset C, C\cup D, B\cup D, 2A, 6A$"],\
-        ["$B\supset C, C\sqcup D, B\cup D, 2A$"],\
-        ["$B\supset C, C\subset D, B\cup D, 6A$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\cup D$"],\
-        ["$B\supset C, C\cup D, B\cup D, 2A, 6N$"],\
-        ["$B\supset C, C\sqcup D, B\sqcup D$"],\
-        ["$B\supset C, C\subset D, B\cup D, 6N$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\sqcup D$"],\
-        ["$B\supset C, C\cup D, B\cup D, 2N, 6A$"],\
-        ["$B\supset C, C\sqcup D, B\cup D, 2N$"],\
-        ["$B\supset C, C\subset D, B\subset D$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\subset D$"],\
-        ["$B\cap C, C\cup D, B\cup D$"],\
-        ["$B\cap C, C\sqcup D, B\sqcup D$"],\
-        ["$B\cap C, C\subset D, B\subset D$"],\
-        ["$B\sqcap C, C\sqsubset D, B\sqsubset D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 65"],\
-        ["$B$\textbullet$C$\textbullet$D$ 66"],\
-        ["$B$\textbullet$C$\textbullet$D$ 67"],\
-        ["$B\sqcup C, C\cup D, B\cup D, 1A, 5N$"],\
-        ["$B\cup C, C\supset D, B\cup D, 3A, 4A$"],\
-        ["$B\cup C, C\supset D, B\sqcup D, 3A$"],\
-        ["$B\cup C, C\supset D, B\cup D, 3A, 4N$"],\
-        ["$B\sqcup C, C\supset D, B\sqcup D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 73"],\
-        ["$B$\textbullet$C$\textbullet$D$ 74"],\
-        ["$B\cup C, C\cup D, B\subset D, 5N, 7A$"],\
-        ["$B\sqcup C, C\cup D, B\subset D, 5N$"],\
-        ["$B\subset C, C\supset D, B\cup D, 3A$"],\
-        ["$B\subset C, C\supset D, B\sqcup D, 3A$"],\
-        ["$B\subset C, C\supset D, B\subset D$"],\
-        ["$B\sqsubset C, C\supset D, B\sqsubset D$"],\
-        ["$B\cup C, C\cup D, B\supset D, 2A, 4A$"],\
-        ["$B\cup C, C\sqcup D, B\supset D, 2A$"],\
-        ["$B\cup C, C\cup D, B\supset D, 2A, 4N$"],\
-        ["$B\sqcup C, C\sqcup D, B\supset D$"],\
-        ["$B\cup C, C\supset D, B\supset D, 4A$"],\
-        ["$B\cup C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\cup C, C\supset D, B\supset D, 4N$"],\
-        ["$B\sqcup C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\cup C, C\cup D, B\supset D, 2N, 4A$"],\
-        ["$B\cup C, C\sqcup D, B\supset D, 2N$"],\
-        ["$B\cup C, C\cup D, B\cap D$"],\
-        ["$B\sqcup C, C\sqcup D, B\cap D$"],\
-        ["$B\subset C, C\supset D, B\supset D$"],\
-        ["$B\subset C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\subset C, C\supset D, B\cap D$"],\
-        ["$B\sqsubset C, C\sqsupset D, B\sqcap D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 97"],\
-        ["$B$\textbullet$C$\textbullet$D$ 98"],\
-        ["$B\cup C, C\subset D, B\cup D, 5N, 6A$"],\
-        ["$B\sqcup C, C\subset D, B\cup D, 5N$"],\
-        ["$B\cup C, C\supset D, B\cup D, 3N, 4A$"],\
-        ["$B\cup C, C\supset D, B\sqcup D, 3N$"],\
-        ["$B\cup C, C\cap D, B\cup D$"],\
-        ["$B\sqcup C, C\cap D, B\sqcup D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 105"],\
-        ["$B$\textbullet$C$\textbullet$D$ 106"],\
-        ["$B\cup C, C\subset D, B\subset D, 5N$"],\
-        ["$B\sqcup C, C\subset D, B\subset D, 5N$"],\
-        ["$B\subset C, C\supset D, B\cup D, 3N$"],\
-        ["$B\subset C, C\supset D, B\sqcup D, 3N$"],\
-        ["$B\subset C, C\cap D, B\subset D$"],\
-        ["$B\sqsubset C, C\cap D, B\sqsubset D$"],\
-        ["$B\supset C, C\cup D, B\supset D, 2A$"],\
-        ["$B\supset C, C\sqcup D, B\supset D, 2A$"],\
-        ["$B\supset C, C\subset D, B\supset D$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\supset D$"],\
-        ["$B\supset C, C\supset D, B\supset D$"],\
-        ["$B\supset C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\supset C, C\cap D, B\supset D$"],\
-        ["$B\sqsupset C, C\sqcap D, B\sqsupset D$"],\
-        ["$B\supset C, C\cup D, B\supset D, 2N$"],\
-        ["$B\supset C, C\sqcup D, B\supset D, 2N$"],\
-        ["$B\supset C, C\subset D, B\cap D$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\cap D$"],\
-        ["$B\cap C, C\supset D, B\supset D$"],\
-        ["$B\cap C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\cap C, C\cap D, B\cap D$"],\
-        ["$B\sqcap C, C\sqcap D, B\sqcap D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 129"],\
-        ["$B$\textbullet$C$\textbullet$D$ 130"],\
-        ["$B$\textbullet$C$\textbullet$D$ 131"],\
-        ["$B\sqcup C, C\cup D, B\cup D, 1N, 5A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 133"],\
-        ["$B\cup C, C\cup D, B\sqcup D, 1N, 3A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 135"],\
-        ["$B\sqcup C, C\cup D, B\sqcup D, 1N$"],\
-        ["$B\cup C, C\sqcap 'D, B\cup D, 7A, 8A$"],\
-        ["$B\cup C, C\sqcap 'D, B\cup D, 7A, 8N$"],\
-        ["$B\cup C, C\sqcap 'D, B\subset D, 7A$"],\
-        ["$B\sqcup C, C\sqcap 'D, B\subset D$"],\
-        ["$B\subset C, C\sqcap 'D, B\cup D, 7A$"],\
-        ["$B\subset C, C\sqcap 'D, B\sqcup D$"],\
-        ["$B\subset C, C\sqcap 'D, B\subset D, 7A$"],\
-        ["$B\sqsubset C, C\sqcap 'D, B\sqsubset D$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 145"],\
-        ["$B\cup C, C\sqcup D, B\cup D, 1N, 2A$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 147"],\
-        ["$B\sqcup C, C\sqcup D, B\cup D, 1N$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 149"],\
-        ["$B\cup C, C\sqcup D, B\sqcup D, 1N$"],\
-        ["$B$\textbullet$C$\textbullet$D$ 151"],\
-        ["$B\sqcup C, C\sqcup D, B\sqcup D, 1N$"],\
-        ["$B\cup C, C\sqcap 'D, B\cup D, 7N, 8A$"],\
-        ["$B\cup C, C\cap 'D, B\cup D$"],\
-        ["$B\cup C, C\sqcap 'D, B\subset D, 7N$"],\
-        ["$B\sqcup C, C\cap 'D, B\subset D$"],\
-        ["$B\subset C, C\sqcap 'D, B\cup D, 7N$"],\
-        ["$B\subset C, C\cap 'D, B\sqcup D$"],\
-        ["$B\subset C, C\sqcap 'D, B\subset D, 7N$"],\
-        ["$B\sqsubset C, C\cap 'D, B\sqsubset D$"],\
-        ["$B\cup C, C\cup D, B\sqcap 'D, 6A, 8A$"],\
-        ["$B\cup C, C\cup D, B\sqcap 'D, 6A, 8N$"],\
-        ["$B\cup C, C\subset D, B\sqcap 'D, 6A$"],\
-        ["$B\sqcup C, C\subset D, B\sqcap 'D$"],\
-        ["$B\cup C, C\cup D, B\sqcap 'D, 6N, 8A$"],\
-        ["$B\cup C, C\cup D, B\cap 'D$"],\
-        ["$B\cup C, C\subset D, B\sqcap 'D, 6N$"],\
-        ["$B\sqcup C, C\subset D, B\cap 'D$"],\
-        ["$B\cup C, C\sqcap 'D, B\sqcap 'D, 8A$"],\
-        ["$B\cup C, C\sqcap 'D, B\sqcap 'D, 8N$"],\
-        ["$B\cup C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\sqcup C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\subset C, C\sqcap 'D, B\sqcap 'D$"],\
-        ["$B\subset C, C\sqcap 'D, B\cap 'D$"],\
-        ["$B\subset C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\sqsubset C, C\sqsupset 'D, B\supset 'D$"],\
-        ["$B\supset C, C\cup D, B\sqcap 'D, 6A$"],\
-        ["$B\supset C, C\sqcup D, B\sqcap 'D$"],\
-        ["$B\supset C, C\subset D, B\sqcap 'D, 6A$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\sqcap 'D$"],\
-        ["$B\supset C, C\cup D, B\sqcap 'D, 6N$"],\
-        ["$B\supset C, C\sqcup D, B\cap 'D$"],\
-        ["$B\supset C, C\subset D, B\sqcap 'D, 6N$"],\
-        ["$B\sqsupset C, C\sqsubset D, B\cap 'D$"],\
-        ["$B\supset C, C\sqcap 'D, B\sqcap 'D$"],\
-        ["$B\supset C, C\cap 'D, B\sqcap 'D$"],\
-        ["$B\supset C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\sqsupset C, C\supset 'D, B\sqsupset 'D$"],\
-        ["$B\cap C, C\sqcap 'D, B\sqcap 'D$"],\
-        ["$B\cap C, C\cap 'D, B\cap 'D$"],\
-        ["$B\cap C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\sqcap C, C\supset 'D, B\supset 'D$"],\
-        ["$B\sqcap 'C, C\cup D, B\cup D, 4A, 8A$"],\
-        ["$B\sqcap 'C, C\cup D, B\cup D, 4A, 8N$"],\
-        ["$B\sqcap 'C, C\cup D, B\cup D, 4N, 8A$"],\
-        ["$B\cap 'C, C\cup D, B\cup D$"],\
-        ["$B\sqcap 'C, C\supset D, B\cup D, 4A$"],\
-        ["$B\sqcap 'C, C\supset D, B\sqcup D$"],\
-        ["$B\sqcap 'C, C\supset D, B\cup D, 4N$"],\
-        ["$B\cap 'C, C\supset D, B\sqcup D$"],\
-        ["$B\sqcap 'C, C\sqcap 'D, B\cup D, 8A$"],\
-        ["$B\sqcap 'C, C\sqcap 'D, B\cup D, 8N$"],\
-        ["$B\sqcap 'C, C\sqcap 'D, B\subset D$"],\
-        ["$B\cap 'C, C\sqcap 'D, B\subset D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\cup D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\sqcup D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\subset D$"],\
-        ["$B\supset 'C, C\sqsubset 'D, B\sqsubset D$"],\
-        ["$B\sqcap 'C, C\cup D, B\supset D, 4A$"],\
-        ["$B\sqcap 'C, C\sqcup D, B\supset D$"],\
-        ["$B\sqcap 'C, C\cup D, B\supset D, 4N$"],\
-        ["$B\cap 'C, C\sqcup D, B\supset D$"],\
-        ["$B\sqcap 'C, C\supset D, B\supset D, 4A$"],\
-        ["$B\sqcap 'C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\sqcap 'C, C\supset D, B\supset D, 4N$"],\
-        ["$B\cap 'C, C\sqsupset D, B\sqsupset D$"],\
-        ["$B\sqcap 'C, C\sqcap 'D, B\supset D$"],\
-        ["$B\sqcap 'C, C\cap 'D, B\supset D$"],\
-        ["$B\sqcap 'C, C\sqcap 'D, B\cap D$"],\
-        ["$B\cap 'C, C\cap 'D, B\cap D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\supset D$"],\
-        ["$B\sqsupset 'C, C\subset 'D, B\sqsupset D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\cap D$"],\
-        ["$B\supset 'C, C\subset 'D, B\sqcap D$"],\
-        ["$B\sqcap 'C, C\cup D, B\sqcap 'D, 8A$"],\
-        ["$B\sqcap 'C, C\cup D, B\sqcap 'D, 8N$"],\
-        ["$B\sqcap 'C, C\subset D, B\sqcap 'D$"],\
-        ["$B\cap' C, C\subset D, B\sqcap 'D$"],\
-        ["$B\sqcap 'C, C\supset D, B\sqcap 'D$"],\
-        ["$B\sqcap 'C, C\supset D, B\cap 'D$"],\
-        ["$B\sqcap 'C, C\cap D, B\sqcap 'D$"],\
-        ["$B\cap 'C, C\cap D, B\cap 'D$"],\
-        ["$B\sqcap 'C, C\sqcap 'D B\sqcap 'D, 8A$"],\
-        ["$B\sqcap 'C, C\sqcap 'D B\sqcap 'D, 8N$"],\
-        ["$B\sqcap 'C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\cap 'C, C\sqsupset 'D, B\sqsupset 'D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\sqcap 'D$"],\
-        ["$B\sqsupset 'C, C\sqsubset 'D, B\cap 'D$"],\
-        ["$B\sqsupset 'C, C\sqcup 'D, B\sqsupset 'D$"],\
-        ["$B\supset 'C, C\sqcup 'D, B\supset 'D$"],\
-        ["$B\sqsubset 'C, C\cup D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\sqcup D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\subset D, B\sqsubset 'D$"],\
-        ["$B\subset 'C, C\sqsubset D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\supset D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\sqsupset D, B\subset 'D$"],\
-        ["$B\sqsubset 'C, C\cap D, B\sqsubset 'D$"],\
-        ["$B\subset 'C, C\sqcap D, B\subset 'D$"],\
-        ["$B\sqsubset 'C, C\sqcap 'D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\cap 'D, B\sqsubset 'D$"],\
-        ["$B\sqsubset 'C, C\sqsupset 'D, B\sqcup 'D$"],\
-        ["$B\subset 'C, C\supset 'D, B\sqcup 'D$"],\
-        ["$B\sqcup 'C, C\sqsubset 'D, B\sqsubset 'D$"],\
-        ["$B\sqcup 'C, C\subset 'D, B\subset 'D$"],\
-        ["$B\sqcup 'C, C\sqcup 'D, B\sqcup 'D$"],\
-        ["$B\cup 'C, C\cup 'D, B\cup 'D$"]\
-    ]
-
-    for i, formula_list_A_N in enumerate(list_third_level_list):
-        for formula_list_name in triadic_level_formulas_names_list:
-            if formula_list_A_N[0] == formula:
-                #print(formula_list_name[0])
-                if index_premis_circumstance == 2:
-                    new_formula_A = triadic_level_formulas_names_list[i][0][:].replace("B", "X")
-                    new_formula_2 = new_formula_A.replace("D", "E")
-                    new_formula_3 = new_formula_2.replace("C", "D")
-                    new_formula_4 = new_formula_3.replace("X", "C")
-                    return [new_formula_4]
-                #"$C$\textbullet$D$\textbullet$E$"
-                elif index_premis_circumstance == 1:
-                    new_formula_B = triadic_level_formulas_names_list[i][0][:].replace("D", "E")
-                    return [new_formula_B]
-                #"$B$\textbullet$C$\textbullet$E$"
-                elif index_premis_circumstance == 3:
-                    new_formula_C = triadic_level_formulas_names_list[i][0][:].replace("D", "E")
-                    new_formula_2 = new_formula_C.replace("C", "D")
-                    return [new_formula_2]
-                #"$B$\textbullet$D$\textbullet$E$"
-                elif index_premis_circumstance == 4:
-                    return [triadic_level_formulas_names_list[i][0]]
-                #"$B$\textbullet$C$\textbullet$D$"
+    for formulas_names in list_formulas_names:
+        if formulas_names[0] == formula:
+            #print(formula_list_name[0])
+            if index_premis_circumstance == 2:
+                new_formula_A = formulas_names[1][0][:].replace("B", "X")
+                new_formula_2 = new_formula_A.replace("D", "E")
+                new_formula_3 = new_formula_2.replace("C", "D")
+                new_formula_4 = new_formula_3.replace("X", "C")
+                return [new_formula_4]
+            #"$C$\textbullet$D$\textbullet$E$"
+            elif index_premis_circumstance == 1:
+                new_formula_B = formulas_names[1][0][:].replace("D", "E")
+                return [new_formula_B]
+            #"$B$\textbullet$C$\textbullet$E$"
+            elif index_premis_circumstance == 3:
+                new_formula_C = formulas_names[1][0][:].replace("D", "E")
+                new_formula_2 = new_formula_C.replace("C", "D")
+                return [new_formula_2]
+            #"$B$\textbullet$D$\textbullet$E$"
+            elif index_premis_circumstance == 4:
+                return [formulas_names[1][0]]
+            #"$B$\textbullet$C$\textbullet$D$"
 
 """def replace_total_formulas_fn( total_formula_old, *args):
 
@@ -1090,6 +1034,8 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
     #21 places = 12 sec
     #22 places = 24 sec
     #32 places = 6.8 h (calculated approximatly)
+    #BEGIN: 2025-02-06 22:46:15.554045
+    #END: 2025-02-07 05:24:23.855997
 
     with open('file.csv', 'w') as file:
         writer = csv.writer(file)
@@ -1139,8 +1085,8 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
             #print(solution_and_contradiction_test)
             if (solution_and_contradiction_test[0] != 'W'):
                                                                                                                                                         
-                first_formula = triadic_name_fn(first_formula_tri, 1)
-                second_formula = triadic_name_fn(second_formula_tri, 2)
+                first_formula = triadic_name_fn(first_formula_tri, 2)
+                second_formula = triadic_name_fn(second_formula_tri, 1)
                 third_formula = triadic_name_fn(third_formula_tri, 3)
                 fourth_formula = triadic_name_fn(fourth_formula_tri, 4)
 
