@@ -1,5 +1,6 @@
 from datetime import datetime
 import csv
+#needs about 2 hours
 
 begin_now = datetime.now()
 print("BEGIN:", begin_now)
@@ -45,9 +46,7 @@ with open('main_output (4. Schritt).csv') as orders_file:
 
         for tetradic_level_formula in tetradic_level_formulas_list_copy:
             for deducable_tetradic_formula in deducable_tetradic_formula_list:
-                #print(str(tetradic_level_formula[0]), str(deducable_tetradic_formula[0]))
                 if str(tetradic_level_formula[0]) == str(deducable_tetradic_formula[0]):
-                    #print('test')
                     tetradic_level_formulas_list.remove(tetradic_level_formula)
                     tetradic_level_formulas_list.append(deducable_tetradic_formula)
 
