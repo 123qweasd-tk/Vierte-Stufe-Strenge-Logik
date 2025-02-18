@@ -53,7 +53,7 @@ with open('main_output (4. Schritt).csv') as orders_file:
 
         #tetradic_level_formulas_list_sorted = sorted(tetradic_level_formulas_list, key=lambda x: (x!=('a'), (x[0][0], x[0][8], x[0][4], x[0][12], x[0][2], x[0][10], x[0][6], x[0][14], x[0][1], x[0][9], x[0][5], x[0][13], x[0][3], x[0][11], x[0][7], x[0][15])))
 
-        for formula in tetradic_level_formulas_list_sorted:
+        for formula in tetradic_level_formulas_list:
             writer.writerow(formula)
 
 
