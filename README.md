@@ -18,3 +18,5 @@ Warnung: Die Namen der Prämissen sind handgeschrieben und können fehlerhaft se
 Ad "main.py":
 Dieses Programm braucht für einen Durchlauf ca. 6,8 Stunden.
 
+SIEHE DATEI: Logische Grundlagen einer Meta-Quantenphysik.pdf
+
