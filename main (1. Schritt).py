@@ -1089,8 +1089,8 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
                 second_formula = triadic_name_fn(second_formula_tri, 1)
                 third_formula = triadic_name_fn(third_formula_tri, 3)
                 fourth_formula = triadic_name_fn(fourth_formula_tri, 4)
-
-                writer.writerow([solution_and_contradiction_test[0], [fourth_formula, second_formula, first_formula, third_formula]])
+                
+                writer.writerow([solution_and_contradiction_test[0], [[fourth_formula, fourth_formula_tri], [second_formula, second_formula_tri], [first_formula, first_formula_tri], [third_formula, third_formula_tri]]])
                 
         file.close()    
                                                                                                                                           
@@ -1100,3 +1100,4 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
 
 
 deduction_of_tetradic_total_formulas_from_triadic_level()
+
