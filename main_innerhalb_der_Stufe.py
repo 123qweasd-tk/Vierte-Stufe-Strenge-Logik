@@ -359,9 +359,9 @@ def tet_syllogism_deduction_seventh_value_n(first_formula, second_formula, third
         return ("u")
 
 def tet_syllogism_deduction_seventh_value_a(first_formula, second_formula, third_formula):
-    if first_formula[3] == "a" and second_formula[4] == "n":  # calculates potential "a"-values of seventh value
+    if first_formula[3] == "a" and second_formula[3] == "n":  # calculates potential "a"-values of seventh value
         return ("a")
-    elif first_formula[3] == "a" and third_formula[4] == "n":
+    elif first_formula[3] == "a" and third_formula[3] == "n":
         return ("a")
     elif first_formula[7] == "a" and second_formula[7] == "n":
         return ("a")
@@ -831,3 +831,4 @@ def enlonged_fn(*args):
     print("END:", end_now)
 
 enlonged_fn()
+
