@@ -787,8 +787,8 @@ def enlonged_fn(premis_1, premis_2, premis_3):
 
         #calculate from enlonged triadic formulas to fourth enlonged tetradic formula
 
-    one = premis_2
-    two =  premis_1
+    one = premis_1
+    two =  premis_2
     three = premis_3
                                                                                                                                     
     #print(premis_1)
@@ -1262,8 +1262,8 @@ for d, formula in enumerate(deducable_tetradic_formula_list):
             #print('1;1;1: ', formula[1][1][1])
             #print('1;2;1: ', formula[1][2][1])
             #print('1;3;1: ', formula[1][3][1])
-            if (formula[1][1][1] == formula_2[1][1][1] and \
-                formula[1][2][1] == formula_2[1][2][1] and \
+            if (formula[1][2][1] == formula_2[1][2][1] and \
+                formula[1][1][1] == formula_2[1][1][1] and \
                 formula[1][3][1] == formula_2[1][3][1]):
 
                 dictionaries['X'+str(d)]["count"] = dictionaries['X'+str(d)]["count"] + 1
@@ -1278,8 +1278,8 @@ for d, formula in enumerate(deducable_tetradic_formula_list):
                     #print(formula_2[1][0][3][1])
                     
                     #for f, formula_between in enumerate(deducable_tetradic_formula_list_between):
-                    prem_1 = formula[1][1][1]
-                    prem_2 = formula[1][2][1]
+                    prem_1 = formula[1][2][1]
+                    prem_2 = formula[1][1][1]
                     prem_3 = formula[1][3][1]
                     #prem_0 = formula[1][0][1]
                     
@@ -1291,9 +1291,7 @@ for d, formula in enumerate(deducable_tetradic_formula_list):
                     enlonged_result_list = enlonged_fn(prem_1, prem_2, prem_3)
                     #print('formula[0]:', formula[0])
                     #print('formula_2[0]:', formula_2[0])
-                    
-                    #######print(d, formula[0])
-                    
+                    print(d, formula[0])
                     #print(enlonged_result_list)
                     #print([formula[0]])
                     #print('[0]:', formula[1][0][0])
@@ -1345,3 +1343,5 @@ for d, formula in enumerate(deducable_tetradic_formula_list):
 
 end_now = datetime.now()
 print("END:", end_now)
+
+
