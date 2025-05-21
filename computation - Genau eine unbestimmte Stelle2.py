@@ -9,7 +9,7 @@ print("BEGIN:", begin_now)
 csv.register_dialect('myDialect', delimiter=' ', doublequote=True,
                          quoting=csv.QUOTE_NONE, skipinitialspace=True)
 
-with open('new_attempt_21_05_2025.csv') as orders_file:
+with open('new_attempt_21_5_2025.csv') as orders_file:
     reader = csv.reader(orders_file, delimiter=',')
     
 
@@ -62,25 +62,25 @@ with open('new_attempt_21_05_2025.csv') as orders_file:
     
     for formula in deducable_tetradic_formula_list:
         #print(formula[2])
-        #print(formula[2]["formula"][0][0])
-        if formula[2]["formula"][0].count('u') == 0:
+        #print(formula[2]["formula_3of4"][0][0])
+        if formula[2]["formula_3of4"][0].count('u') == 0:
             count_0u = count_0u + 1
         
-        if formula[2]["formula"][0].count('u') == 8:
+        if formula[2]["formula_3of4"][0].count('u') == 8:
             count_8u = count_8u + 1
-        if formula[2]["formula"][0].count('u') == 7:
+        if formula[2]["formula_3of4"][0].count('u') == 7:
             count_7u = count_7u + 1
-        if formula[2]["formula"][0].count('u') == 6:
+        if formula[2]["formula_3of4"][0].count('u') == 6:
             count_6u = count_6u + 1
-        if formula[2]["formula"][0].count('u') == 5:
+        if formula[2]["formula_3of4"][0].count('u') == 5:
             count_5u = count_5u + 1
-        if formula[2]["formula"][0].count('u') == 4:
+        if formula[2]["formula_3of4"][0].count('u') == 4:
             count_4u = count_4u + 1
-        if formula[2]["formula"][0].count('u') == 3:
+        if formula[2]["formula_3of4"][0].count('u') == 3:
             count_3u = count_3u + 1
-        if formula[2]["formula"][0].count('u') == 2:
+        if formula[2]["formula_3of4"][0].count('u') == 2:
             count_2u = count_2u + 1
-        if formula[2]["formula"][0].count('u') == 1:
+        if formula[2]["formula_3of4"][0].count('u') == 1:
             count_1u = count_1u + 1
     
     
@@ -122,23 +122,23 @@ with open('new_attempt_21_05_2025.csv') as orders_file:
     count_1a = 0
 
     for formula in deducable_tetradic_formula_list:
-        if formula[2]["formula"][0].count('u') >= 1:
+        if formula[2]["formula_3of4"][0].count('u') >= 1:
             
-            if formula[2]["formula"][0].count('a') == 8:
+            if formula[2]["formula_3of4"][0].count('a') == 8:
                 count_0a = count_0a + 1
-            if formula[2]["formula"][0].count('a') == 7:
+            if formula[2]["formula_3of4"][0].count('a') == 7:
                 count_7a = count_7a + 1
-            if formula[2]["formula"][0].count('a') == 6:
+            if formula[2]["formula_3of4"][0].count('a') == 6:
                 count_6a = count_6a + 1
-            if formula[2]["formula"][0].count('a') == 5:
+            if formula[2]["formula_3of4"][0].count('a') == 5:
                 count_5a = count_5a + 1
-            if formula[2]["formula"][0].count('a') == 4:
+            if formula[2]["formula_3of4"][0].count('a') == 4:
                 count_4a = count_4a + 1
-            if formula[2]["formula"][0].count('a') == 3:
+            if formula[2]["formula_3of4"][0].count('a') == 3:
                 count_3a = count_3a + 1
-            if formula[2]["formula"][0].count('a') == 2:
+            if formula[2]["formula_3of4"][0].count('a') == 2:
                 count_2a = count_2a + 1
-            if formula[2]["formula"][0].count('a') == 1:
+            if formula[2]["formula_3of4"][0].count('a') == 1:
                 count_1a = count_1a + 1
             
     gewichtet_0a = count_0a*0.5
@@ -172,8 +172,8 @@ with open('new_attempt_21_05_2025.csv') as orders_file:
 
     for d, formula in enumerate(deducable_tetradic_formula_list):
         for e, formula_2 in enumerate(deducable_tetradic_formula_list):
-            if formula[2]["formula"] not in new_set:
-                new_set.append(formula[2]["formula"])
+            if formula[2]["formula_3of4"] not in new_set:
+                new_set.append(formula[2]["formula_3of4"])
     
     dictionaries = {}
     
@@ -182,7 +182,7 @@ with open('new_attempt_21_05_2025.csv') as orders_file:
 
     for d, formula in enumerate(deducable_tetradic_formula_list):
         for e, formula_new_set in enumerate(new_set):
-            if formula[2]["formula"] == dictionaries['X'+str(e)]["formula"]:
+            if formula[2]["formula_3of4"] == dictionaries['X'+str(e)]["formula_3of4"]:
                 dictionaries['X'+str(e)]["count"] = dictionaries['X'+str(e)]["count"] + 1
                 
 orders_file.close()
@@ -202,4 +202,5 @@ orders_file_2.close()
 
 end_now = datetime.now()
 print("END:", end_now)
+
 
