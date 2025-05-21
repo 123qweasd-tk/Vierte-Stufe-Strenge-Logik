@@ -2,9 +2,6 @@ from datetime import datetime
 import csv
 import ast
 
-global formula_between_global_variable
-formula_between_global_variable = 0
-
 def tet_syllogism_deduction_first_value_n(first_formula, second_formula, third_formula):
     if first_formula[0] == "n" and first_formula[4] == "n":  # caluculates potential "n"-values of first value
         return ("n")
@@ -1247,7 +1244,7 @@ with open('new_attempt.csv', 'w') as file:
 
 dictionaries = {}
 for d in range(len(deducable_tetradic_formula_list)):
-    dictionaries['X'+str(d)] = {"formula": " ", "formula_name": " ", "count" : 0}
+    dictionaries['X'+str(d)] = {"formula_4": " ", "formula_3of4": " ", "formula_name": " ", "count" : 0}
 
 edit_deducable_tetradic_formula_list = deducable_tetradic_formula_list[:]
 
@@ -1270,60 +1267,48 @@ for d, formula in enumerate(deducable_tetradic_formula_list):
                 
                 #count_dummy_for_loop = dictionaries['X'+str(d)]["count"]
                 
-                if dictionaries['X'+str(d)]["count"] != 0:
+                
                     
-                    #print(formula_2[1][0][0][1])
-                    #print(formula_2[1][0][2][1])
-                    #print(formula_2[1][0][1][1])
-                    #print(formula_2[1][0][3][1])
-                    
-                    #for f, formula_between in enumerate(deducable_tetradic_formula_list_between):
-                    prem_1 = formula[1][2][1]
-                    prem_2 = formula[1][1][1]
-                    prem_3 = formula[1][3][1]
-                    #prem_0 = formula[1][0][1]
-                    
-                    #print('prem_1: ', prem_1)
-                    #print('prem_2: ', prem_2)
-                    #print('prem_3: ', prem_3)
-                    #print('prem_0: ', prem_0)
-                    
-                    enlonged_result_list = enlonged_fn(prem_1, prem_2, prem_3)
-                    #print('formula[0]:', formula[0])
-                    #print('formula_2[0]:', formula_2[0])
-                    print(d, formula[0])
-                    #print(enlonged_result_list)
-                    #print([formula[0]])
-                    #print('[0]:', formula[1][0][0])
-                    #print(formula[1][1][0])
-                    #print(formula[1][2][0])
-                    #print(formula[1][3][0])
-                    dictionaries['X'+str(d)]["formula"] = enlonged_result_list
-                    dictionaries['X'+str(d)]["formula_name"] = enlonged_result_list[1]
-                    formula_between_global_variable = enlonged_result_list
+                #print(formula_2[1][0][0][1])
+                #print(formula_2[1][0][2][1])
+                #print(formula_2[1][0][1][1])
+                #print(formula_2[1][0][3][1])
+                
+                #for f, formula_between in enumerate(deducable_tetradic_formula_list_between):
+                prem_1 = formula[1][2][1]
+                prem_2 = formula[1][1][1]
+                prem_3 = formula[1][3][1]
+                #prem_0 = formula[1][0][1]
+                
+                #print('prem_1: ', prem_1)
+                #print('prem_2: ', prem_2)
+                #print('prem_3: ', prem_3)
+                #print('prem_0: ', prem_0)
+                
+                enlonged_result_list = enlonged_fn(prem_1, prem_2, prem_3)
+                #print('formula[0]:', formula[0])
+                #print('formula_2[0]:', formula_2[0])
+                print(d, formula[0])
+                #print(enlonged_result_list)
+                #print([formula[0]])
+                #print('[0]:', formula[1][0][0])
+                #print(formula[1][1][0])
+                #print(formula[1][2][0])
+                #print(formula[1][3][0])
+                dictionaries['X'+str(d)]["formula_4"] = formula[1][0][1]
+                dictionaries['X'+str(d)]["formula_3of4"] = enlonged_result_list
+                dictionaries['X'+str(d)]["formula_name"] = enlonged_result_list[1]
 
-                    with open('new_attempt.csv', 'a') as file:
-                        writer = csv.writer(file)
-                    
-                        writer.writerow([d+1, e+1, dictionaries['X'+str(d)]])
-                    
-                    file.close()
-                            
-                    edit_deducable_tetradic_formula_list[e] = [[],[[[], []], [[],[]], [[],[]], [[],[]]]]
+                with open('new_attempt.csv', 'a') as file:
+                    writer = csv.writer(file)
+                
+                    writer.writerow([d+1, e+1, dictionaries['X'+str(d)]])
+                
+                file.close()
+                        
+                edit_deducable_tetradic_formula_list[e] = [[],[[[], []], [[],[]], [[],[]], [[],[]]]]
 
-                else:
-                    dictionaries['X'+str(d)]["formula"] = formula_between_global_variable[0]
-                    dictionaries['X'+str(d)]["formula_name"] = formula_between_global_variable[1]
-
-                    with open('new_attempt.csv', 'a') as file:
-                        writer = csv.writer(file)
-                    
-                        writer.writerow([d+1, e+1, dictionaries['X'+str(d)]])
-                    
-                    file.close()
-                    
-                    edit_deducable_tetradic_formula_list[e] = [[],[[[], []], [[],[]], [[],[]], [[],[]]]]     
-                        #print(dictionaries['X'+str(d)])
+         #print(dictionaries['X'+str(d)])
         #name_function_prem_2 = function_number_to_name(formula_between[1][1][0], 2)
 
         #name_function_prem_3 = function_number_to_name(formula_between[1][2][0], 1)
