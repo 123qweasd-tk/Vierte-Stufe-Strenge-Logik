@@ -1075,7 +1075,7 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
 
         
         
-            solution_and_contradiction_test = syllogism_contradiction_test_tet(first_formula_tri, second_formula_tri, third_formula_tri, fourth_formula_tri)
+            solution_and_contradiction_test = syllogism_contradiction_test_tet(third_formula_tri, second_formula_tri,  fourth_formula_tri, first_formula_tri,)
                         #solution_and_contradiction_test[0].count('u') == 1 --> one 'u' in total-formula
                         #len(error_number) == 0 --> no contradiction
                                                             
@@ -1085,12 +1085,12 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
             #print(solution_and_contradiction_test)
             if (solution_and_contradiction_test[0] != 'W'):
                                                                                                                                                         
-                first_formula = triadic_name_fn(first_formula_tri, 2)
-                second_formula = triadic_name_fn(second_formula_tri, 1)
-                third_formula = triadic_name_fn(third_formula_tri, 3)
-                fourth_formula = triadic_name_fn(fourth_formula_tri, 4)
+                first_formula = triadic_name_fn(first_formula_tri, 4)
+                second_formula = triadic_name_fn(second_formula_tri, 2)
+                third_formula = triadic_name_fn(third_formula_tri, 1)
+                fourth_formula = triadic_name_fn(fourth_formula_tri, 3)
                 
-                writer.writerow([solution_and_contradiction_test[0], [[fourth_formula, fourth_formula_tri], [second_formula, second_formula_tri], [first_formula, first_formula_tri], [third_formula, third_formula_tri]]])
+                writer.writerow([solution_and_contradiction_test[0], [[first_formula, first_formula_tri], [second_formula, second_formula_tri], [third_formula, third_formula_tri], [fourth_formula, fourth_formula_tri]]])
                 
         file.close()    
                                                                                                                                           
@@ -1100,4 +1100,5 @@ def deduction_of_tetradic_total_formulas_from_triadic_level( *args):
 
 
 deduction_of_tetradic_total_formulas_from_triadic_level()
+
 
